@@ -1,0 +1,551 @@
+//imports
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import 'antd/dist/antd.css';
+
+//--------------mixins--------------
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-justify-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin background-fit {
+  background-size: cover;
+  background-position: center;
+}
+//--------------variables--------------
+$gray: #c4c0ca;
+$white: #e0e0e0;
+$primary-dark: #1f242c;
+$border-dark: #43474dea;
+$primary-blue: #4683ff;
+$light-crimson: #fc525f;
+$pink: #de8ab8;
+//--------------global styles--------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+button {
+  width: auto;
+  padding: 0.3em 1em;
+  border: 0;
+  @include flex-align-center();
+  cursor: pointer;
+}
+//--------------antd clearance--------------
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: transparent;
+  border-right: 5px solid $primary-blue;
+  color: #5194e2;
+  .ant-menu-item-icon,
+  span {
+    color: $primary-blue;
+  }
+}
+.ant-menu {
+  background-color: $primary-dark !important;
+}
+.ant-badge-dot {
+  background: $primary-blue;
+  box-shadow: none;
+}
+.ant-avatar {
+  border: none !important;
+}
+//--------------predefined classes--------------
+.icon {
+  margin: 0 0.2em;
+}
+.panel-card {
+  height: 95%;
+  padding: 1em;
+  border: 1px solid $border-dark;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  margin-bottom: 1em;
+  .top {
+    @include flex-justify-between();
+    margin-bottom: 1em;
+  }
+}
+.btn-group {
+  @include flex-justify-center();
+  button {
+    margin: 0.5em;
+  }
+}
+//-------------- component stylings--------------
+
+//*** StatusCard.js ***
+.status-card-container {
+  width: 100%;
+  border: 2px dashed transparent;
+  .status-card {
+    .main {
+      @include flex-justify-between();
+      h3 {
+        font-size: 1.5em;
+        color: $white;
+      }
+      span {
+        color: $white;
+      }
+    }
+  }
+  &:hover {
+    border: 2px dashed $border-dark;
+    border-radius: 11px;
+    .status-card {
+      background: $primary-blue;
+      transform: translate(3%, 3%);
+      * {
+        color: #fff !important;
+      }
+    }
+  }
+}
+//*** ApplicationRecieved.js ***
+.application-recieved {
+  .top {
+    margin-bottom: 2em;
+    .menu {
+      span {
+        margin: 0 0.5em;
+      }
+    }
+  }
+}
+//*** TopApplications.js ***
+.top-applicaitons {
+  .main {
+    ul {
+      padding: 0;
+      li {
+        @include flex-justify-between();
+        margin: 0.8em 0;
+        .title {
+          @include flex-align-center();
+          width: 200px;
+          margin-right: 1em;
+        }
+      }
+    }
+  }
+}
+//*** ReferalsAndCampaign.js ***
+
+.referals-and-campaign {
+  .top {
+    .info {
+      @include flex-align-center();
+      .icon,
+      h4 {
+        margin-right: 1em;
+        color: #fc525f;
+        font-size: 1.2em;
+      }
+      h4 {
+        margin: 0;
+      }
+    }
+  }
+  .main {
+    .card {
+      border-right: 1px solid $border-dark;
+      padding: 1em;
+      text-align: center;
+      span {
+        color: $primary-blue;
+      }
+      h3 {
+        color: #fff;
+        font-size: 1.4em;
+      }
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-around;
+      button {
+        background-color: $light-crimson;
+        padding: 0.6em 1em;
+        &.start {
+          background-color: $primary-blue;
+        }
+      }
+    }
+  }
+}
+//*** NewApplications.js ***
+.new-applications {
+  height: 100%;
+  border: 1px solid $border-dark;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 17px;
+  padding-top: 1em;
+  display: flex;
+  align-items: flex-end;
+  .message {
+    text-align: center;
+    color: $gray;
+    img {
+      width: 100%;
+      margin-top: 1em;
+    }
+  }
+  .tab {
+    width: 100%;
+    padding: 2em 1em 0.5em 1em;
+    background-color: #2b2e38;
+    border-radius: 35px 35px 0 0;
+    .top {
+      @include flex-justify-between();
+      margin-bottom: 2em;
+      h3 {
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: normal;
+        margin: 0;
+      }
+    }
+    .main {
+      ul {
+        li {
+          @include flex-justify-between();
+          margin-bottom: 1em;
+          .user-details {
+            @include flex-align-center();
+            .icon {
+              font-size: 1.5em;
+              margin-right: 0.5em;
+            }
+            h4 {
+              font-weight: normal;
+              font-size: 1.1em;
+              margin: 0;
+              color: $gray;
+            }
+            span {
+              color: $primary-blue;
+              font-size: 0.8em;
+            }
+          }
+          .action {
+            @include flex-align-center();
+            .icon {
+              margin: 0 0.3em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//--------------project stylings--------------
+
+//***Sidebar***
+.sidebar {
+  background: $primary-dark;
+  border-right: 1px solid $border-dark;
+  .logo-container {
+    margin: 1em 0;
+    padding: 1em 0;
+    text-align: center;
+    img {
+      width: 35px;
+    }
+  }
+}
+//***Headbar***
+.headbar {
+  background-color: $primary-dark;
+  color: $gray;
+  padding: 1em 1em 1.5em 2em;
+  @include flex-justify-between();
+  .content {
+    h2 {
+      font-size: 1.5em;
+      color: $white;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+      span {
+        color: $primary-blue;
+      }
+    }
+  }
+  .action {
+    .user-info {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .icon {
+        color: $gray;
+        font-size: 20px;
+      }
+      .info {
+        margin-left: 1.3em;
+        @include flex-align-center();
+        .dp {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          background-color: $primary-blue;
+          margin-left: 0.8em;
+          @include background-fit();
+        }
+      }
+    }
+    .user-action {
+      margin-top: 1em;
+      @include flex-align-center();
+      button {
+        margin-right: 1.5em;
+        background: $primary-blue;
+        color: #fff;
+      }
+      input {
+        background: transparent;
+        border: 0;
+        color: $gray;
+        margin-right: 0.5em;
+      }
+    }
+  }
+}
+.mainpanel {
+  min-height: 100vh;
+  background: $primary-dark;
+  color: $white;
+  padding: 1em 1em 1em 2em;
+}
+
+@media (max-width: 576px) {
+  .headbar {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .action {
+      .user-action {
+        width: 90%;
+        margin: 1em 0 1em auto;
+        flex-direction: row-reverse;
+      }
+    }
+  }
+  .ant-col {
+    width: 100%;
+  }
+  .panel-card {
+    .top {
+      text-align: center;
+      flex-wrap: wrap;
+    }
+  }
+  //*** ReferalsAndCampaign.js ***
+  .referals-and-campaign {
+    .main {
+      padding-bottom: 1em;
+      .card {
+        border-bottom: 1px solid $border-dark;
+        border-right: 0;
+      }
+      .btn-group {
+        flex-wrap: wrap;
+        margin: 1em 0;
+      }
+    }
+  }
+}
+
+//_____________________ Second Task - Gallery _____________________
+
+.gallery {
+  background: #2c323b;
+  color: $gray;
+  height: 100%;
+  .sider {
+    padding: 2em;
+    position: relative;
+    .logo {
+      img {
+        width: 40px;
+      }
+    }
+    .user-details {
+      margin: 4em 0;
+      @include flex-align-center();
+      .dp {
+        height: 50px;
+        width: 50px;
+        @include background-fit();
+        background-color: $primary-blue;
+        border-radius: 50%;
+        margin-right: 1em;
+      }
+      h4 {
+        color: $gray;
+        font-size: 1.3em;
+        margin: 0;
+      }
+    }
+    .menu {
+      padding: 0;
+      li {
+        @include flex-justify-between();
+        margin: 0.5em 0;
+        button {
+          background: $pink;
+          color: #fff;
+          border-radius: 3px;
+        }
+      }
+    }
+    .upgrade {
+      background: rgba($color: #fff, $alpha: 0.1);
+      padding: 1em;
+      display: flex;
+      border-radius: 17px;
+      .icon {
+        font-size: 30px;
+        color: #de8ab8;
+        margin-right: 0.5em;
+      }
+      button {
+        color: $primary-dark;
+        border-radius: 3px;
+        margin-top: 0.5em;
+      }
+    }
+    .logout {
+      font-size: 1.2em;
+      color: $gray;
+      margin-top: 1em;
+    }
+    .add {
+      height: 50px;
+      width: 50px;
+      padding: 0;
+      border-radius: 50%;
+      @include flex-justify-center();
+      background: $pink;
+      color: #fff;
+      position: absolute;
+      bottom: 2%;
+      right: -4%;
+      z-index: 9;
+      .icon {
+        font-size: 25px;
+      }
+    }
+  }
+  .gallery-mainpanel {
+    background: $primary-dark;
+    height: 98%;
+    margin: 1em 1em 1em 0;
+    padding: 1em 2em;
+    border-radius: 25px;
+    .top {
+      @include flex-justify-between();
+      h1 {
+        color: #fff;
+        font-size: 2em;
+      }
+    }
+    .filter {
+      display: flex;
+      button {
+        margin-right: 1em;
+        background: transparent;
+        &.active {
+          border-bottom: 1px solid $pink;
+        }
+        &.btn {
+          background: $pink;
+          color: #fff;
+        }
+      }
+    }
+    .gallery {
+      background: transparent;
+      height: 480px;
+      overflow-y: scroll;
+      margin: 1em 0;
+      &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+      }
+      .gallery-item {
+        position: relative;
+        @include background-fit();
+        margin: 0.5em;
+        border-radius: 25px;
+        padding: 2em;
+        h3 {
+          width: 85%;
+          color: #fff;
+          font-size: 1.5em;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 600;
+        }
+        .icon {
+          font-size: 50px;
+          position: absolute;
+          bottom: 4%;
+          left: 2%;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 756px) {
+  .filter {
+    flex-wrap: wrap;
+    button {
+      margin-bottom: 1em;
+    }
+  }
+  .gallery {
+    .sider {
+      .add {
+        right: 3%;
+      }
+    }
+    .gallery-item {
+      min-height: 300px;
+    }
+  }
+}
+@media (min-width: 800px) {
+  .gallery {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 300px);
+      grid-auto-flow: row dense;
+      .gallery-item {
+        &:first-child {
+          grid-row: span 2;
+        }
+        &:nth-child(4),
+        &:nth-child(9) {
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+}
