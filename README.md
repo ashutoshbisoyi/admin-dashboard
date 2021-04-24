@@ -1,6 +1,6 @@
 # React Admin Dashboard
 
-This is an admin dashboard using react js which includes interactive charts, graphs 
+This is a dark theme admin dashboard using react js which includes interactive charts, graphs 
 
 ## Live
 
