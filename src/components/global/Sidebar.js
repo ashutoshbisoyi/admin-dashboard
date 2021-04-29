@@ -9,7 +9,7 @@ import { BsFillPeopleFill } from 'react-icons/bs';
 import { RiGalleryLine } from 'react-icons/ri';
 import { Link, useLocation } from 'react-router-dom';
 
-const { Sider } = Layout;
+const { Sider } = Layout; //ant layout
 
 const Sidebar = () => {
   const [collapsed, setcollapsed] = useState(false);
